@@ -18,14 +18,34 @@ public class PlayerMoviment : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
     }
     
+    void Update()
+    {
+        x = Input.GetAxisRaw("Horizontal");
+
+        CheckGround();
+
+        if(Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
+        {
+            Jump();
+        }
+    }
+    
+    void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(x * velocidade, rb.linearVelocity.y);
+        RunAnimation(x);
+        JumpAnimation();
+    }
+
     void CheckGround()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
@@ -49,26 +69,18 @@ public class PlayerMoviment : MonoBehaviour
         {
             spriteRenderer.flipX = x < 0;
         }
+    }
+
+    void JumpAnimation()
+    {
+        animator.SetBool("isJumping", isGrounded != true);
+            
         
     }
 
-    void Update()
-    {
-        x = Input.GetAxisRaw("Horizontal");
 
-        CheckGround();
 
-        if(Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
-        {
-            Jump();
-        }
-    }
-    
-    void FixedUpdate()
-    {
-        rb.linearVelocity = new Vector2(x * velocidade, rb.linearVelocity.y);
-        RunAnimation(x);
-    }
+
     void OnDrawGizmos()
 {
     Gizmos.color = Color.red;
