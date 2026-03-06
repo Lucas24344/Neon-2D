@@ -1,16 +1,29 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
+public class PlayerAttack : MonoBehaviour{
+private int comboSteps = 0;
+private Animator animator;
+
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Ataque");
+            
+            animator.SetInteger("attackClickCount",comboSteps);
+            animator.SetTrigger("attack");
+            comboSteps++;
+            if(comboSteps > 2)
+            {
+                comboSteps = 0;
+            }
+        }
     }
+
 }
