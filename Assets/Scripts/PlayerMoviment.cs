@@ -10,7 +10,7 @@ public class PlayerMoviment : MonoBehaviour
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask groundLayer;
-    bool isGrounded;
+    public bool isGrounded;
 
     private float jumpForce = 6f;
     private int maxJumps = 2;
@@ -31,7 +31,7 @@ public class PlayerMoviment : MonoBehaviour
     {
         x = Input.GetAxisRaw("Horizontal");
 
-        CheckGround();
+         CheckGround();
 
         if(Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
