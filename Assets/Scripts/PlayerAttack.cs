@@ -1,12 +1,12 @@
 
 
+
 using UnityEngine;
 public class PlayerAttack : MonoBehaviour{
 private int comboSteps = 1;
 private Animator animator;
 private bool isAttack;
-private float bufferTime = 0.8f;
-private float bufferCount;
+private bool queue;
 
     void Start()
     {
@@ -16,42 +16,47 @@ private float bufferCount;
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-             
-            bufferCount = bufferTime;
-               
+            if (!isAttack)
+            {
+                RunAnimation();  
+            }
+            else if(!queue)
+            {
+                queue = true;
+            }     
         }
-        if(bufferCount > 0)
-        {
-            bufferCount -= Time.deltaTime;
-        }
-        if(bufferCount > 0 && !isAttack)
-        {
-            
-            isAttack = true;
-            bufferCount = 0;
-            RunAnimation();
-            
-            Invoke(nameof(ResetAttack), 0.6f);
-        }
-        
     }
     void RunAnimation()
     {
-         Debug.Log(comboSteps);
+        
+        
+        Debug.Log(comboSteps);
+        isAttack = true;
                animator.SetInteger("attackClickCount",comboSteps);
             animator.SetTrigger("attack");
             comboSteps++;
-         
-            
             if(comboSteps > 2)
             {
                 comboSteps =1;
             }
             
+            
     }
-    void ResetAttack()
+
+    void CloseComboWindow()
     {
-        isAttack = false;
+        if (queue)
+        {
+            queue = false;
+            RunAnimation();
+            
+        }
+        else
+        {
+            comboSteps = 1;
+            isAttack = false;
+        }
+        
     }
 
 }
