@@ -4,10 +4,10 @@ private int comboSteps = 1;
 private Animator animator;
 private bool isAttack;
 private bool queue;
-
 private PlayerMoviment playerMoviment;
 private Rigidbody2D rb;
 private bool firstAttack;
+public Collider2D hitBox;
 
     void Start()
     {
@@ -79,4 +79,14 @@ private bool firstAttack;
     {
         rb.gravityScale = 2;
     }
+
+    void EnableCollider()
+    {
+        hitBox.enabled = true;
+    }
+
+    void DisableCollider()
+    {
+        hitBox.enabled = false;
+    } 
 }
