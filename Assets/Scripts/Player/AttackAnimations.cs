@@ -1,5 +1,5 @@
 using UnityEngine;
-public class PlayerAttack : MonoBehaviour{
+public class AttackAnimations : MonoBehaviour{
 private int comboSteps = 1;
 private Animator animator;
 private bool isAttack;
