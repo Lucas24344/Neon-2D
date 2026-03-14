@@ -782,7 +782,6 @@ GameObject:
   - component: {fileID: 1072200451}
   - component: {fileID: 1072200452}
   - component: {fileID: 1072200453}
-  - component: {fileID: 1072200454}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -852,7 +851,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 177f8e6fcacda844bbf32664e0f444f8, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -949,7 +948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c5fe6d053223f44a0318d081bf5e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  isKnockback: 0
 --- !u!114 &1072200452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +962,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
   pontoA: {fileID: 811523467}
   pontoB: {fileID: 2022293412}
-  direction: 1
 --- !u!95 &1072200453
 Animator:
   serializedVersion: 7
@@ -987,18 +984,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1072200454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072200446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83d7b73adbdc364aa8b349c67555042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Animations
 --- !u!1 &1265681824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,8 +1521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c823dcf60380548ba21aa1474799fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionDetect
-  knockbackForceX: 2
-  knockbackForceY: 0.9
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

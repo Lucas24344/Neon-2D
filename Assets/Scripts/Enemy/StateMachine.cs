@@ -3,11 +3,12 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float velocityX = 0.7f;
+    private float velocityX = 0.9f;
     public Transform pontoA;
     public Transform pontoB;
-    private float direction = 1f;
+    public float direction = 1f;
     private Transform pontoAtual;
+    private EnemyHealth enemyHealth;
     enum State
     {
         Patrol
@@ -17,7 +18,7 @@ public class StateMachine : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         pontoAtual = pontoB;
-
+        enemyHealth = GetComponent<EnemyHealth>();
     }
     void FixedUpdate()
     {
@@ -30,11 +31,17 @@ public class StateMachine : MonoBehaviour
     }
     void Patrulhar()
     {
-        rb.linearVelocity = new Vector2(velocityX * direction, rb.linearVelocity.y);
-        if(Vector2.Distance(transform.position, pontoAtual.position) < 0.5f)
+        if (!enemyHealth.isKnockback)
         {
-            direction *= -1;
-            pontoAtual = pontoAtual == pontoB ? pontoA : pontoB;
+            rb.linearVelocity = new Vector2(velocityX * direction, rb.linearVelocity.y);
+            if(Vector2.Distance(transform.position, pontoAtual.position) < 0.5f)
+            {
+                direction *= -1;
+                pontoAtual = pontoAtual == pontoB ? pontoA : pontoB;
+            }
+            
         }
+        
+        
     }
 }

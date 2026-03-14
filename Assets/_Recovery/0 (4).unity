@@ -852,7 +852,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 177f8e6fcacda844bbf32664e0f444f8, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -949,7 +949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c5fe6d053223f44a0318d081bf5e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  isKnockback: 0
 --- !u!114 &1072200452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,8 +1535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c823dcf60380548ba21aa1474799fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionDetect
-  knockbackForceX: 2
-  knockbackForceY: 0.9
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
