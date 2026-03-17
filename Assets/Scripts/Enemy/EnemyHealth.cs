@@ -12,14 +12,14 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int dano, float knockbackForceX, float knockbackForceY)
     {
         isKnockback = true;
-        Debug.Log(knockbackForceX );
+        rb.linearVelocity = Vector2.zero;
         rb.AddForce(new Vector2(knockbackForceX, knockbackForceY), ForceMode2D.Impulse);
         health -= dano;
         if(health <= 0)
         {
            Debug.Log("ai");
         } 
-        Invoke(nameof(DisableKnockback), 0.4f); 
+        Invoke(nameof(DisableKnockback), 0.3f); 
     } 
     void DisableKnockback()
     {

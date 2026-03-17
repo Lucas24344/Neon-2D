@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class StateMachine : MonoBehaviour
@@ -9,9 +10,15 @@ public class StateMachine : MonoBehaviour
     public float direction = 1f;
     private Transform pontoAtual;
     private EnemyHealth enemyHealth;
+    public bool attack;
+    private float timeToNextAttack = 0f;
+    private float attackInterval = 1f;
+
+    public LayerMask playerLayer;
     enum State
     {
-        Patrol
+        Patrol,
+        Attack
     }
     State currentState = State.Patrol;
     void Start()
@@ -20,6 +27,10 @@ public class StateMachine : MonoBehaviour
         pontoAtual = pontoB;
         enemyHealth = GetComponent<EnemyHealth>();
     }
+    void Update()
+    {
+        PlayerDetected();
+    }
     void FixedUpdate()
     {
         switch(currentState)
@@ -27,7 +38,12 @@ public class StateMachine : MonoBehaviour
             case State.Patrol:
                 Patrulhar();
                 break;
+            case State.Attack:
+                Atacar();
+                
+                break;
         }
+
     }
     void Patrulhar()
     {
@@ -36,12 +52,61 @@ public class StateMachine : MonoBehaviour
             rb.linearVelocity = new Vector2(velocityX * direction, rb.linearVelocity.y);
             if(Vector2.Distance(transform.position, pontoAtual.position) < 0.5f)
             {
-                direction *= -1;
-                pontoAtual = pontoAtual == pontoB ? pontoA : pontoB;
+                TogglePosition();
             }
             
         }
+    }
+    void TogglePosition()
+    {
+        direction *= -1;
+        pontoAtual = pontoAtual == pontoB ? pontoA : pontoB;
+    }
+    void Atacar()
+    {
+        timeToNextAttack -= Time.deltaTime;
+        if( timeToNextAttack <= 0)
+        {
+            attack = true;
+            rb.linearVelocity = Vector2.zero;
+            Debug.Log("Atacando");
+
+            timeToNextAttack = attackInterval;
+            
+        }
+        else
+        {
+            attack = false;
+        }
         
+       
+    }
+
+    void PlayerDetected()
+    {
+        RaycastHit2D hitForward = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 5f, playerLayer);
+        RaycastHit2D hitBack = Physics2D.Raycast(transform.position, new Vector2(-direction, 0), 5f, playerLayer);
+        if(hitForward.collider != null && hitForward.distance < 0.5f )
+        {
+            currentState = State.Attack;
+        }
+        else if(hitBack.collider != null && hitBack.distance < 0.5f)
+        {
+            TogglePosition();
+            currentState = State.Attack;
+        }
+    
+        else
+        {
+            attack = false;
+            currentState = State.Patrol;
+        }
+       
         
+    }
+    void OnDrawiGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, new Vector2(direction, 0) * 2f);
     }
 }

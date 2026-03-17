@@ -51,15 +51,14 @@ public Collider2D hitBox;
 
     void RunAnimation()
     {
-        Debug.Log(comboSteps);
         isAttack = true;
-               animator.SetInteger("attackClickCount",comboSteps);
-            animator.SetTrigger("attack");
-            comboSteps++;
-            if(comboSteps > 2)
-            {
-                comboSteps =1;
-            }      
+        animator.SetInteger("attackClickCount",comboSteps);
+        animator.SetTrigger("attack");
+        comboSteps++;
+        if(comboSteps > 2)
+        {
+            comboSteps =1;
+        }      
     }
 
     void CloseComboWindow()
