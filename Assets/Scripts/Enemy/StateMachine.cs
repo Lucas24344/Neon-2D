@@ -4,7 +4,7 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float velocityX = 0.9f;
+    private float velocityX = 1.3f;
     public Transform pontoA;
     public Transform pontoB;
     public float direction = 1f;
@@ -12,7 +12,7 @@ public class StateMachine : MonoBehaviour
     private EnemyHealth enemyHealth;
     public bool attack;
     private float timeToNextAttack = 0f;
-    private float attackInterval = 1f;
+    private float attackInterval = 0.8f;
 
     public LayerMask playerLayer;
     enum State
@@ -69,7 +69,6 @@ public class StateMachine : MonoBehaviour
         {
             attack = true;
             rb.linearVelocity = Vector2.zero;
-            Debug.Log("Atacando");
 
             timeToNextAttack = attackInterval;
             
@@ -77,20 +76,18 @@ public class StateMachine : MonoBehaviour
         else
         {
             attack = false;
-        }
-        
-       
+        } 
     }
 
     void PlayerDetected()
     {
         RaycastHit2D hitForward = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 5f, playerLayer);
         RaycastHit2D hitBack = Physics2D.Raycast(transform.position, new Vector2(-direction, 0), 5f, playerLayer);
-        if(hitForward.collider != null && hitForward.distance < 0.5f )
+        if(hitForward.collider != null && hitForward.distance < 0.8f )
         {
             currentState = State.Attack;
         }
-        else if(hitBack.collider != null && hitBack.distance < 0.5f)
+        else if(hitBack.collider != null && hitBack.distance < 0.8f)
         {
             TogglePosition();
             currentState = State.Attack;

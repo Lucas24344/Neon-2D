@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    private int damage = 30;
+    private int damage = 10;
     public float knockbackForceX = 2f;
     public float knockbackForceY = 0.6f;
     void OnTriggerEnter2D(Collider2D other)

@@ -18,6 +18,7 @@ public class PlayerMoviment : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private PlayerHealth playerHealth;
     
 
     void Start()
@@ -25,6 +26,7 @@ public class PlayerMoviment : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
     
     void Update()
@@ -41,9 +43,15 @@ public class PlayerMoviment : MonoBehaviour
     
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(x * velocidade, rb.linearVelocity.y);
-        RunAnimation(x);
-        JumpAnimation();
+        
+        if (!playerHealth.playerIsKnockback)
+        {
+            rb.linearVelocity = new Vector2(x * velocidade, rb.linearVelocity.y);
+            RunAnimation(x);
+            JumpAnimation();
+        }
+        
+        
     }
 
     void CheckGround()
@@ -77,9 +85,6 @@ public class PlayerMoviment : MonoBehaviour
             
         
     }
-
-
-
 
     void OnDrawGizmos()
 {

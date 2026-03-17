@@ -1,37 +1,25 @@
 fileFormatVersion: 2
-guid: 6c502e71acacd0543b1cc99c0f431679
+guid: dbacb48928d9f2b488aaa99c79c9c340
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3984948888800490918
-    second: _AttackComboNoMovement_0
+      213: 1334909474723237668
+    second: _Attack2NoMovement_0
   - first:
-      213: -711078728889181417
-    second: _AttackComboNoMovement_1
+      213: -7080961375967834571
+    second: _Attack2NoMovement_1
   - first:
-      213: 3089235579767655581
-    second: _AttackComboNoMovement_2
+      213: -4680654449115406751
+    second: _Attack2NoMovement_2
   - first:
-      213: 2344322803747158021
-    second: _AttackComboNoMovement_3
+      213: -7127675528933595853
+    second: _Attack2NoMovement_3
   - first:
-      213: -5824371925146413656
-    second: _AttackComboNoMovement_4
+      213: 6855488510596582009
+    second: _Attack2NoMovement_4
   - first:
-      213: -9075705633980563542
-    second: _AttackComboNoMovement_5
-  - first:
-      213: -4466299568123712580
-    second: _AttackComboNoMovement_6
-  - first:
-      213: 1331935041510976160
-    second: _AttackComboNoMovement_7
-  - first:
-      213: 8117863399146252174
-    second: _AttackComboNoMovement_8
-  - first:
-      213: 6818602343639179484
-    second: _AttackComboNoMovement_9
+      213: -7259909186463099801
+    second: _Attack2NoMovement_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,98 +128,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _AttackComboNoMovement_0
+      name: _Attack2NoMovement_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 0
-        width: 39
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6a57a05b6e16d4730800000000000000
-      internalID: 3984948888800490918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _AttackComboNoMovement_1
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 0
-        width: 66
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 71b593dd9adb126f0800000000000000
-      internalID: -711078728889181417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _AttackComboNoMovement_2
-      rect:
-        serializedVersion: 2
-        x: 281
-        y: 0
-        width: 65
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d9c8c8f646b2fda20800000000000000
-      internalID: 3089235579767655581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _AttackComboNoMovement_3
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 0
-        width: 59
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 50872345b25b88020800000000000000
-      internalID: 2344322803747158021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _AttackComboNoMovement_4
-      rect:
-        serializedVersion: 2
-        x: 510
+        x: 30
         y: 0
         width: 38
         height: 37
@@ -243,17 +143,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a5d3e9c79cab2fa0800000000000000
-      internalID: -5824371925146413656
+      spriteID: 42f8e28381d868210800000000000000
+      internalID: 1334909474723237668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackComboNoMovement_5
+      name: _Attack2NoMovement_1
       rect:
         serializedVersion: 2
-        x: 626
+        x: 146
         y: 0
         width: 42
         height: 37
@@ -265,17 +165,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aafb390afcd9c0280800000000000000
-      internalID: -9075705633980563542
+      spriteID: 53e0d25252f5bbd90800000000000000
+      internalID: -7080961375967834571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackComboNoMovement_6
+      name: _Attack2NoMovement_2
       rect:
         serializedVersion: 2
-        x: 747
+        x: 267
         y: 0
         width: 77
         height: 41
@@ -287,17 +187,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cbb618dc4348402c0800000000000000
-      internalID: -4466299568123712580
+      spriteID: 16edf14e399fa0fb0800000000000000
+      internalID: -4680654449115406751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackComboNoMovement_7
+      name: _Attack2NoMovement_3
       rect:
         serializedVersion: 2
-        x: 864
+        x: 384
         y: 0
         width: 64
         height: 36
@@ -309,17 +209,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0aa28250ddbfb7210800000000000000
-      internalID: 1331935041510976160
+      spriteID: 3352ba7ded8651d90800000000000000
+      internalID: -7127675528933595853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackComboNoMovement_8
+      name: _Attack2NoMovement_4
       rect:
         serializedVersion: 2
-        x: 984
+        x: 504
         y: 0
         width: 46
         height: 36
@@ -331,17 +231,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e87e14150c178a070800000000000000
-      internalID: 8117863399146252174
+      spriteID: 97a81eb7a76932f50800000000000000
+      internalID: 6855488510596582009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackComboNoMovement_9
+      name: _Attack2NoMovement_5
       rect:
         serializedVersion: 2
-        x: 1104
+        x: 624
         y: 0
         width: 45
         height: 36
@@ -353,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd0624d74ba80ae50800000000000000
-      internalID: 6818602343639179484
+      spriteID: 764954f3f0f9f3b90800000000000000
+      internalID: -7259909186463099801
       vertices: []
       indices: 
       edges: []
@@ -373,16 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      _AttackComboNoMovement_0: 3984948888800490918
-      _AttackComboNoMovement_1: -711078728889181417
-      _AttackComboNoMovement_2: 3089235579767655581
-      _AttackComboNoMovement_3: 2344322803747158021
-      _AttackComboNoMovement_4: -5824371925146413656
-      _AttackComboNoMovement_5: -9075705633980563542
-      _AttackComboNoMovement_6: -4466299568123712580
-      _AttackComboNoMovement_7: 1331935041510976160
-      _AttackComboNoMovement_8: 8117863399146252174
-      _AttackComboNoMovement_9: 6818602343639179484
+      _Attack2NoMovement_0: 1334909474723237668
+      _Attack2NoMovement_1: -7080961375967834571
+      _Attack2NoMovement_2: -4680654449115406751
+      _Attack2NoMovement_3: -7127675528933595853
+      _Attack2NoMovement_4: 6855488510596582009
+      _Attack2NoMovement_5: -7259909186463099801
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

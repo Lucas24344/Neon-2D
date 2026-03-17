@@ -4,7 +4,7 @@ public class EnemyHealth : MonoBehaviour
 {
     private int health = 100; 
     private Rigidbody2D rb;
-        public bool isKnockback;
+    public bool isKnockback;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
         health -= dano;
         if(health <= 0)
         {
-           Debug.Log("ai");
+           Destroy(gameObject);
         } 
         Invoke(nameof(DisableKnockback), 0.3f); 
     } 
