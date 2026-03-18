@@ -642,6 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a53d8e2935f8742a78473d6c0ccced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerIsKnockback: 0
 --- !u!1 &893216717
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +946,7 @@ Transform:
   m_GameObject: {fileID: 1072200446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.016, y: -0.0429, z: 0}
+  m_LocalPosition: {x: 3.2, y: -0.01, z: 0}
   m_LocalScale: {x: 1.2222483, y: 1.3767246, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -981,6 +982,7 @@ MonoBehaviour:
   pontoB: {fileID: 2022293412}
   direction: 1
   attack: 0
+  collider2D: {fileID: 2022947575}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1164,6 +1166,8 @@ GameObject:
   - component: {fileID: 1766806379}
   - component: {fileID: 1766806380}
   - component: {fileID: 1766806381}
+  - component: {fileID: 1766806382}
+  - component: {fileID: 1766806383}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -1248,6 +1252,35 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   FollowOffset: {x: 0, y: 0, z: -10}
+--- !u!114 &1766806382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766806378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 1
+  FrequencyGain: 1
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &1766806383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766806378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ce03e20808c70479b57aa0e9bfd784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
 --- !u!1 &1836809675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,6 +1541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9faf451665063de4d8e4696ed89194ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  knockbackForceX: 3
+  knockbackForceY: 0.9
 --- !u!1 &2049169689
 GameObject:
   m_ObjectHideFlags: 0

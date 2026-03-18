@@ -1,6 +1,5 @@
 
 using UnityEngine;
-
 public class StateMachine : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -13,7 +12,7 @@ public class StateMachine : MonoBehaviour
     public bool attack;
     private float timeToNextAttack = 0f;
     private float attackInterval = 0.8f;
-
+    public Collider2D collider2D;
     public LayerMask playerLayer;
     enum State
     {
@@ -26,6 +25,7 @@ public class StateMachine : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         pontoAtual = pontoB;
         enemyHealth = GetComponent<EnemyHealth>();
+      
     }
     void Update()
     {
@@ -40,10 +40,8 @@ public class StateMachine : MonoBehaviour
                 break;
             case State.Attack:
                 Atacar();
-                
                 break;
         }
-
     }
     void Patrulhar()
     {
@@ -53,14 +51,15 @@ public class StateMachine : MonoBehaviour
             if(Vector2.Distance(transform.position, pontoAtual.position) < 0.5f)
             {
                 TogglePosition();
-            }
-            
+            }     
         }
     }
     void TogglePosition()
     {
         direction *= -1;
         pontoAtual = pontoAtual == pontoB ? pontoA : pontoB;
+        Vector3 pos = collider2D.transform.localPosition;
+        collider2D.transform.localPosition = new Vector3(Mathf.Abs(pos.x) * direction, pos.y, pos.z);
     }
     void Atacar()
     {
@@ -70,15 +69,13 @@ public class StateMachine : MonoBehaviour
             attack = true;
             rb.linearVelocity = Vector2.zero;
 
-            timeToNextAttack = attackInterval;
-            
+            timeToNextAttack = attackInterval;            
         }
         else
         {
             attack = false;
         } 
     }
-
     void PlayerDetected()
     {
         RaycastHit2D hitForward = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 5f, playerLayer);
@@ -92,18 +89,10 @@ public class StateMachine : MonoBehaviour
             TogglePosition();
             currentState = State.Attack;
         }
-    
         else
         {
             attack = false;
             currentState = State.Patrol;
         }
-       
-        
-    }
-    void OnDrawiGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, new Vector2(direction, 0) * 2f);
     }
 }

@@ -6,7 +6,6 @@ public class PlayerMoviment : MonoBehaviour
     public float velocidade = 8f;
     private float x;
     private Rigidbody2D rb;
-
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     public LayerMask groundLayer;
@@ -50,8 +49,6 @@ public class PlayerMoviment : MonoBehaviour
             RunAnimation(x);
             JumpAnimation();
         }
-        
-        
     }
 
     void CheckGround()
@@ -72,6 +69,7 @@ public class PlayerMoviment : MonoBehaviour
 
     void RunAnimation(float x)
     {
+        animator.SetBool("isHurt", false);
         animator.SetBool("isRunning", x != 0);
         if(x != 0)
         {
@@ -81,15 +79,8 @@ public class PlayerMoviment : MonoBehaviour
 
     void JumpAnimation()
     {
+        animator.SetBool("isHurt", false);
         animator.SetBool("isJumping", isGrounded != true);
-            
-        
-    }
 
-    void OnDrawGizmos()
-{
-    Gizmos.color = Color.red;
-    Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
-}
-    
+    }
 }

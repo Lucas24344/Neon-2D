@@ -10,15 +10,17 @@ private Rigidbody2D rb;
 private bool firstAttack;
 public Collider2D hitBox;
 private float cooldownTime;
-private float timeToNextAttack = 0.2f;
+private float timeToNextAttack = 0.5f;
 private bool inCooldown;
 private int lastAttack;
+private CameraShake cameraShake;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         playerMoviment = GetComponent<PlayerMoviment>();
+        cameraShake = FindObjectOfType<CameraShake>();
     }
     void Update()
     {
@@ -67,11 +69,13 @@ private int lastAttack;
 
     void RunAnimation()
     {
+        cameraShake.Shake(0.8f, 0.2f);
         isAttack = true;
         Debug.Log(comboSteps);
         lastAttack = comboSteps;
         animator.SetInteger("attackClickCount",comboSteps);
         animator.SetTrigger("attack");
+        
         comboSteps++;
         if(comboSteps > 4)
         {
