@@ -839,7 +839,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0035497546, y: 0.018909201}
+  m_Offset: {x: -0.0035496205, y: 0.0048698783}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -849,7 +849,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.52432096, y: 0.697453}
+  m_Size: {x: 0.49135515, y: 0.66937435}
   m_EdgeRadius: 0
 --- !u!50 &1072200448
 Rigidbody2D:
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 2022947574}
   - component: {fileID: 2022947575}
   - component: {fileID: 2022947577}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,7 +7,6 @@ private bool isAttack;
 private bool queue;
 private PlayerMoviment playerMoviment;
 private Rigidbody2D rb;
-private bool firstAttack;
 public Collider2D hitBox;
 private float cooldownTime;
 private float timeToNextAttack = 0.5f;
@@ -38,7 +37,7 @@ private CameraShake cameraShake;
             
             if (!isAttack && !inCooldown)
             {
-                RunAnimation();  
+                Attack();  
             }
             
             else if(isAttack && !queue)
@@ -46,40 +45,19 @@ private CameraShake cameraShake;
                 queue = true;
             }     
         }
-        if (playerMoviment.isGrounded)
-        {
-            firstAttack = false;
-        }
-        if (!firstAttack && !playerMoviment.isGrounded)
-        {
-            attackSuspensionInAir();
-        } 
+
     }
 
-    void attackSuspensionInAir()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            firstAttack = true;
-            rb.gravityScale = 0;
-            rb.linearVelocity = Vector2.zero;
-            Invoke(nameof(ResetGravity), 0.2f);
-        }
-    }
-
-    void RunAnimation()
+    void Attack()
     {
         cameraShake.Shake(0.8f, 0.2f);
         isAttack = true;
-        Debug.Log(comboSteps);
         lastAttack = comboSteps;
         animator.SetInteger("attackClickCount",comboSteps);
         animator.SetTrigger("attack");
-        
         comboSteps++;
         if(comboSteps > 4)
         {
-            
             comboSteps =1;
         }      
     }
@@ -100,7 +78,7 @@ private CameraShake cameraShake;
         if (queue)
         {
             queue = false;
-            RunAnimation(); 
+            Attack(); 
         }
         else
         {
@@ -109,10 +87,7 @@ private CameraShake cameraShake;
             isAttack = false;
         } 
     }
-    void ResetGravity()
-    {
-        rb.gravityScale = 2;
-    }
+
 
     void EnableCollider()
     {

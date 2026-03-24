@@ -8,6 +8,7 @@ public class Animations : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private EnemyHealth enemyHealth;
+    private Rigidbody2D rb;
     
     void Start()
     {
@@ -15,12 +16,17 @@ public class Animations : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
     void Update()
     {
-        if(stateMachine.direction != 0)
+        if(stateMachine.direction == 0)
+        {
+            IdleAnimation();
+        }
+        if(stateMachine.direction != 0 )
         {
             WalkAnimation();
         }
@@ -38,8 +44,13 @@ public class Animations : MonoBehaviour
         {
             animator.SetBool("isHurt", false);
         }
-    
         
+    }
+    void IdleAnimation()
+    {
+        animator.SetBool("isIdle", true);
+        animator.SetBool("isWalk", false);
+        animator.SetBool("isAttack", false);
         
     }
     void WalkAnimation()

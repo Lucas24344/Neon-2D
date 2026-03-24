@@ -30,6 +30,7 @@ public class StateMachine : MonoBehaviour
     void Update()
     {
         PlayerDetected();
+        
     }
     void FixedUpdate()
     {
@@ -95,4 +96,5 @@ public class StateMachine : MonoBehaviour
             currentState = State.Patrol;
         }
     }
+
 }
