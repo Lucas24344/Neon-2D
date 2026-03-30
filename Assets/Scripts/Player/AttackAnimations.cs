@@ -3,7 +3,7 @@ using UnityEngine;
 public class AttackAnimations : MonoBehaviour{
 private int comboSteps = 1;
 private Animator animator;
-private bool isAttack;
+public bool isAttack;
 private bool queue;
 private PlayerMoviment playerMoviment;
 private Rigidbody2D rb;
@@ -19,7 +19,7 @@ private CameraShake cameraShake;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         playerMoviment = GetComponent<PlayerMoviment>();
-        cameraShake = FindObjectOfType<CameraShake>();
+        cameraShake = FindFirstObjectByType<CameraShake>();
     }
     void Update()
     {
@@ -32,7 +32,7 @@ private CameraShake cameraShake;
                 inCooldown = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetMouseButtonDown(0))
         {
             
             if (!isAttack && !inCooldown)
@@ -53,8 +53,8 @@ private CameraShake cameraShake;
         cameraShake.Shake(0.8f, 0.2f);
         isAttack = true;
         lastAttack = comboSteps;
-        animator.SetInteger("attackClickCount",comboSteps);
         animator.SetTrigger("attack");
+        animator.SetInteger("attackClickCount",comboSteps);
         comboSteps++;
         if(comboSteps > 4)
         {

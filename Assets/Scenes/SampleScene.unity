@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 819996778}
   - component: {fileID: 819996779}
   - component: {fileID: 819996780}
+  - component: {fileID: 819996781}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMoviment
   velocidade: 3.5
+  x: 0
   groundCheck: {fileID: 1729464622}
   groundRadius: 0.5
   groundLayer:
@@ -643,6 +645,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   playerIsKnockback: 0
+--- !u!114 &819996781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819996772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97dd8ae79f767274e84c25799ef2c545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimations
 --- !u!1 &893216717
 GameObject:
   m_ObjectHideFlags: 0

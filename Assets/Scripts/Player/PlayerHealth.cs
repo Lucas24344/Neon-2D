@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
 
     void DisablePlayerKnockback()
     {
+        animator.SetBool("isHurt", false);
         playerIsKnockback = false;
     }
 }
